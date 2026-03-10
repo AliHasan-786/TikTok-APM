@@ -1,9 +1,11 @@
+"use client";
+
 import { ModerationResult } from "@/lib/simulator";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Separator } from "@/components/ui/separator";
-import { AlertTriangle, BookOpen, BrainCircuit, Lock, EyeOff, Check, XCircle } from "lucide-react";
+import { BookOpen, BrainCircuit, Lock, EyeOff, Check, XCircle } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 export function HumanModeratorDashboard({ data, onReset }: { data: ModerationResult, onReset: () => void }) {
