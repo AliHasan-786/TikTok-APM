@@ -202,7 +202,6 @@ export function TriageSimulator() {
   if (result && result.assessment.predictedAction === "Escalate") {
     return (
       <>
-        <NavBar />
         <div className="pt-16">
           <HumanModeratorDashboard data={result} onReset={() => { setResult(null); setAgentSteps([]); }} />
         </div>
@@ -212,7 +211,6 @@ export function TriageSimulator() {
 
   return (
     <>
-      <NavBar />
       <HeroSection />
       <HowItWorksSection />
 
@@ -236,8 +234,8 @@ export function TriageSimulator() {
                 key={tc.id}
                 onClick={() => handleSelectCase(tc)}
                 className={`text-left p-4 rounded-xl border transition-all ${selectedCase?.id === tc.id
-                    ? "border-tiktok-cyan bg-tiktok-cyan/10 shadow-[0_0_15px_rgba(37,244,238,0.2)]"
-                    : "border-white/10 bg-zinc-900/50 hover:border-white/20 hover:bg-zinc-800/50"
+                  ? "border-tiktok-cyan bg-tiktok-cyan/10 shadow-[0_0_15px_rgba(37,244,238,0.2)]"
+                  : "border-white/10 bg-zinc-900/50 hover:border-white/20 hover:bg-zinc-800/50"
                   }`}
               >
                 <Badge variant="outline" className="text-[10px] mb-2">{tc.category}</Badge>
@@ -372,24 +370,5 @@ export function TriageSimulator() {
         </p>
       </footer>
     </>
-  );
-}
-
-/* ─── Nav Bar ─── */
-function NavBar() {
-  return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/80 backdrop-blur-xl border-b border-white/10">
-      <div className="max-w-6xl mx-auto flex items-center justify-between px-4 h-14">
-        <div className="flex items-center gap-2">
-          <ShieldAlert className="w-5 h-5 text-tiktok-red" />
-          <span className="font-bold text-sm">TrustScore-RAG</span>
-        </div>
-        <div className="flex items-center gap-6 text-sm text-zinc-400">
-          <a href="#simulator" className="hover:text-white transition-colors">Simulator</a>
-          <a href="#prd" className="hover:text-white transition-colors">PRD</a>
-          <a href="https://github.com/AliHasan-786/TrustScore" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub</a>
-        </div>
-      </div>
-    </nav>
   );
 }
