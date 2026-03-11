@@ -57,7 +57,7 @@ I architected and coded this entire platform to prove that my product sense is b
 *   **Backend / AI Integration:** Next.js Route Handlers strictly integrating the `gemini-2.5-flash` model via the `@google/genai` SDK.
 *   **Prompt Engineering:** Deployed constitutional AI prompts specifically tuned to override default safeguard thresholds, allowing recruiters to test genuinely harmful/toxic strings to see the moderation logic work accurately.
 
-## 📈 Why I am the Best Candidate
+## 📈 What I Bring
 The TikTok Safety Product APM role requires a rare blend of **empathy** (understanding user and creator harm), **systems thinking** (calculating the cascading effects of a policy execution), and **technical literacy** (knowing the limitations and boundaries of modern LLMs). 
 
 1.  **I don't just write PRDs; I build prototypes.** I can rapidly validate technical feasibility and user experience before taxing engineering resources.
