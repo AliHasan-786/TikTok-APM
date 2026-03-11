@@ -8,7 +8,7 @@ const openai = new OpenAI({
 async function test() {
     try {
         const response = await openai.chat.completions.create({
-            model: 'openai/gpt-oss-120b:free',
+            model: 'google/gemini-2.5-flash',
             messages: [{ role: 'user', content: 'Return exactly {"hello":"world"} and no other text.' }]
         });
         console.log("RESPONSE:", response.choices[0].message.content);
