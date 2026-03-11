@@ -1,41 +1,67 @@
-# TrustScore-RAG: Agentic Escalation Engine
-**TikTok Trust & Safety APM Portfolio Project**
+# TikTok Trust & Safety APM Portfolio
+**An Interactive Product Management, AI/ML, and Platform Integrity Showcase**
 
-## 1. Executive Summary
-The rapid accessibility of generative AI and coordination of FIMI (Foreign Information Manipulation and Interference) networks have dramatically escalated content safety threats, specifically in areas of civic integrity and medical misinformation. Traditional automated content moderation—relying on binary classifications—fundamentally struggles with deep context and policy ambiguity. This results in either unacceptable over-enforcement (brand damage/loss of user agency) or dangerous under-enforcement (harm scaling globally).
+[![Live Demo](https://img.shields.io/badge/Live_Demo-Vercel-black?style=for-the-badge&logo=vercel)](https://tiktok-apm-portfolio.vercel.app/) 
+[![Next.js](https://img.shields.io/badge/Next.js-14-black?style=for-the-badge&logo=next.js)](https://nextjs.org/) 
+[![Gemini](https://img.shields.io/badge/Google_Gemini-2.5_Flash-blue?style=for-the-badge&logo=google)](https://deepmind.google/technologies/gemini/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
-**TrustScore-RAG** is a cost-aware selective classification prototype designed to bridge the gap between blunt automation and high-cost manual review. By leveraging a Retrieval-Augmented Generation (RAG) architecture paired with an LLM Performance Predictor (LPP), the system calculates internal AI uncertainty (aleatoric vs. epistemic). It autonomously actions clear violations based on strict RAG evidence, while specifically escalating highly ambiguous, borderline cases to a custom Human-in-the-Loop (HITL) Explainable AI Dashboard, dramatically reducing manual review volumes and mitigating operator automation bias.
+## 🎯 Executive Summary
+I built this comprehensive, full-stack application as a direct demonstration of my qualifications for the **Associate Product Manager - Safety Product** role at TikTok (San Jose). 
 
-## 2. Problem Statement
-*   **Scale and Cost**: TikTok routes millions of items daily to human reviewers. Reviewing every potentially borderline claim fundamentally breaks operational expenditure limits and introduces massive multi-second latency, allowing harmful content to achieve viral escape velocity.
-*   **LLM Hallucinations in Policy**: Passing all complex moderation exclusively to unconstrained LLMs generates high-profile errors. In complex policy domains, LLM hallucination rates jump to 17-33%.
-*   **Automation Bias**: When human operators use highly accurate AI tools, they become cognitively passive. A simple "True/False" confidence score causes moderators to blindly approve AI recommendations, negating the purpose of HITL redundancy.
+This portfolio proves my ability to translate complex policy challenges into scalable, user-centric product solutions. It specifically demonstrates practical experience with the exact technologies and frameworks mentioned in the job description: **Large Language Models (LLMs), Retrieval-Augmented Generation (RAG), Human-in-the-Loop (HITL) workflows, platform integrity logic, and data-driven product metrics.**
 
-## 3. Product Requirements & Features
-### 3.1 Agentic Algorithm Triage Layer
-*   **Input Ingestion**: Processes video transcripts or user claims.
-*   **Targeted RAG Retrieval**: Simulates extracting context from verified internal policy databases and approved eternal knowledge graphs (e.g., DSA guidelines, WHO models).
-*   **LPP Calculation**: The backend calculates a granular confidence score. Cases exceeding 90% confidence are Auto-Approved or Auto-Removed.
-*   **Cost-Aware Actioning**: Drops immediate manual review requirements for obvious cases, drastically lowering the Time To First Token (TTFT)/operational latency.
-
-### 3.2 Human-in-the-Loop (HITL) Moderator Dashboard
-*   **XAI Explainability Matrix**: For escalated tickets, the UI explicitly highlights *why* the AI was confused (Epistemic/Policy Gap vs Aleatoric/Missing Evidence) rather than blindly suggesting an action.
-*   **Raw Source Visibility**: Translates retrieved RAG documents alongside their relevance scores, forcing the operator to verify claims against root evidence.
-*   **Adjudication Console**: Clear interfaces allowing the operator to declare the content *Ineligible for the For You Feed (FYF)*, completely removed, or approved.
-
-## 4. Definition of Success (KPIs)
-To validate the system's efficacy at achieving business objectives, we measure:
-*   **Primary Metric - Escalation Precision Rate:** The percentage of cases flagged as "ambiguous" by the LPP that genuinely required human intervention, directly impacting review efficiency.
-*   **Secondary Metric - Moderation Cost per 1k Actions:** The measurable financial savings (Compute vs. Labor overhead) by auto-routing obvious high-confidence cases.
-*   **Critical Guardrail - Human Override Rate:** The frequency at which human moderators actively disagree with any partial AI assessments. If zero, it indicates severe Automation Bias; if near 100%, the AI classifier has degraded.
-
-## 5. Latency vs. Quality Trade-Off Analysis
-Deeper multi-hop Agentic searches inherently scale quality but drastically impact global TTFT (Time to First Token). In real-time enforcement formats (e.g., Livestream moderation), a 3-second orchestration delay exposes thousands of concurrent viewers to harmful content. TrustScore-RAG bypasses this by utilizing high-speed similarity checks for basic policy intersections (Auto-Routing) and only invoking complex multi-agent reasoning paths on identified edge cases.
-
-## 6. Go-to-Market & Operations Rollout
-*   **Phase 1 (Data Science & ML)**: Calibrate the LPP thresholds on shadow-data (historical resolved tickets) without active enforcement to measure theoretical precision/recall.
-*   **Phase 2 (Trust & Safety Ops)**: Roll out the XAI HITL Dashboard to a specialized "Tiger Team" of senior moderators. Monitor for cognitive fatigue and UX friction.
-*   **Phase 3 (Policy Alignment)**: Utilize the output of the Epistemic Uncertainty flags to build a feedback loop for the Policy team, actively showing them where community guidelines are too vague for machine comprehension, driving future policy clarity updates.
+The application is split into two distinct product pillars, mirroring the dual nature of an APM role: external user empowerment and internal operational efficiency.
 
 ---
-*Developed as a demonstration of Product Management, Trust & Safety Architecture, and LLM-system design proficiency.*
+
+## 🛡️ Product Pillar 1: Creator Aegis (Consumer-Facing)
+**Goal:** Empower creators by giving them granular, natural-language control over their comment sections, moving beyond simplistic keyword blocks to combat semantic evasions and targeted harassment.
+
+### Core Feature & Problem Solved
+Creators frequently face harassment that evades rigid keyword filters (e.g., trolls using words like "whale" or "bakery" to fat-shame instead of using explicitly banned words). Expecting creators to anticipate and block every possible evasion tactic is poor UX and shifts the safety burden onto the victim.
+
+**Creator Aegis** acts as a personalized zero-shot AI boundary system. Creators simply type their boundaries in plain English (e.g., "Block passive-aggressive comments about my parenting style"). A simulated edge-device LLM dynamically parses incoming comments against these specific rules, catching semantic evasions, leetspeak, and contextual bullying.
+
+### Alignment with TikTok APM Responsibilities:
+*   **Identifying User Pain Points & Emerging Risks:** Recognizes the trend of bad actors bypassing traditional keyword filters and solves for the creator's emotional fatigue.
+*   **AI-Powered Moderation:** Deploys a live LLM (Gemini 2.5 Flash with `BLOCK_NONE` safety overrides for authentic testing) acting as a personalized inference engine.
+*   **Product Discovery & Iteration:** Features a "Try the Demo" sandbox proving the concept natively in the browser.
+
+---
+
+## ⚖️ Product Pillar 2: TrustScore Engine (Internal Operations)
+**Goal:** Optimize content safety systems and enhance review efficiency by integrating RAG and granular confidence scoring to triage ambiguous policy violations.
+
+### Core Feature & Problem Solved
+TikTok reviews millions of items daily. Binary AI classifiers often fail in highly contextual or legally ambiguous domains (e.g., EU DSA compliance regarding synthetic media, medical misinformation, or counterfactual fairness). Routing everything to humans breaks operational budgets (Labor vs. Compute costs), while letting AI auto-action everything leads to high-profile PR disasters due to hallucinations and model biases.
+
+**TrustScore-RAG** acts as an intelligent triage layer. It ingests claims and uses a simulated Retrieval-Augmented Generation pipeline to cross-reference established policies. Most importantly, it calculates an **LLM Performance Predictor (LPP) Score**. 
+- **Auto-Takedown / Auto-Approve:** High confidence (>90%) -> Bypasses human review, reducing operational expenditure.
+- **Strategic Escalation (HITL):** Low confidence -> Routes to a human moderator. 
+
+### Resolving Automation Bias (Appropriate Reliance)
+When human moderators engage with highly accurate AI, they often suffer from *Automation Bias* (blindly agreeing with the machine). This dashboard forces **Appropriate Reliance** by explicitly providing *Explainable AI (XAI)*. It tells the moderator exactly *why* it is confused—differentiating between **Aleatoric Uncertainty** (missing factual data) and **Epistemic Uncertainty** (vague company policy)—and displays the raw RAG sources used to make the assumption.
+
+### Alignment with TikTok APM Responsibilities:
+*   **Enhancing Review Efficiency & Risk Control:** Directly tackles the scaling problem of moderation operations while guarding against LLM hallucinations.
+*   **RAG & Human-in-the-loop Workflows:** Actively demonstrates a sophisticated dashboard specifically designed to augment, not replace, human policy ops teams while avoiding cognitive fatigue.
+*   **Tracking Success Metrics:** Defines precise KPIs including *Escalation Precision Rate*, *Moderation Cost per 1k Actions*, and *Human Override Rate* to ensure the product fundamentally impacts business goals.
+
+---
+
+## 🛠️ Technical Architecture & Execution
+I architected and coded this entire platform to prove that my product sense is backed by tangible execution capabilities. I operate seamlessly with engineering teams because I understand the stack.
+
+*   **Frontend / UI:** Next.js 14 (App Router), React, Tailwind CSS, Framer Motion (for crisp, premium micro-animations reflecting TikTok's design standards), Lucide React.
+*   **Backend / AI Integration:** Next.js Route Handlers strictly integrating the `gemini-2.5-flash` model via the `@google/genai` SDK.
+*   **Prompt Engineering:** Deployed constitutional AI prompts specifically tuned to override default safeguard thresholds, allowing recruiters to test genuinely harmful/toxic strings to see the moderation logic work accurately.
+
+## 📈 Why I am the Best Candidate
+The TikTok Safety Product APM role requires a rare blend of **empathy** (understanding user and creator harm), **systems thinking** (calculating the cascading effects of a policy execution), and **technical literacy** (knowing the limitations and boundaries of modern LLMs). 
+
+1.  **I don't just write PRDs; I build prototypes.** I can rapidly validate technical feasibility and user experience before taxing engineering resources.
+2.  **I understand the Moderation Trilemma.** I grasp the intricate balance between False Positives (over-enforcement hurting brand/creators), False Negatives (under-enforcement hurting platform integrity), and Operational Cost (scalable human logic).
+3.  **I am fluent in the academic state-of-the-art.** From *Counterfactual Fairness (BBQ)* to *Indirect Prompt Injection (BIPIA)*, I approach trust & safety through a rigorous, research-backed framework.
+
+This portfolio is my minimum viable product. I look forward to bringing this level of intensity, strategic clarity, and technical execution to the APM cohort at TikTok.
